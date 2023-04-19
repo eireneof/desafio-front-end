@@ -1,27 +1,29 @@
-# DesafioFrontEnd
+# Desafio Angular Front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+## Objetivo:
 
-## Development server
+- Consumo de API externas, à partir de documentação
+- Salvar as informações somente no storage do navegador (Não utilizar backend e/ou banco de dados)
+- Estrutura de projeto (Componentes, etc)
+- O projeto deve ser feito em ANGULAR
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descrição do projeto
 
-## Code scaffolding
+Dada uma localização (Cidade, latitude, longitude, etc) a aplicação deverá buscar na API de tempo (Weather API ou afins) a temperatura relativa da localização e assim que retornada a resposta deverá ser solicitada para à API de músicas (Shazam API ou afins) a lista de músicas recomendadas para o clima atual.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Caso a temperatura seja maior que 32 graus, deverá retornar Rock;
+- Caso a temperatura seja menor que 32 e maior 24, deverá retornar Pop;
+- Caso a temperatura seja menor que 24 e maior que 16, devera retornar Classica;
 
-## Build
+E caso a temperatura seja menor que 16, deverá retornar Lofi.
+Assim que retornado à lista de música, caso seja do agrado da pessoa, poderá ser salva no storage do navegador com a data de busca, a lista de músicas, à temperatura, à cidade e a categoria das músicas.
+Deverá haver uma página mostrando a listagem das músicas por data salva no storage.
+As listas podem ser deletadas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Apis recomendadas
+- https://openweathermap.org/current
+- https://rapidapi.com/apidojo/api/shazam
 
-## Running unit tests
+## Diferenciais
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Fazer deploy em algum serviço
