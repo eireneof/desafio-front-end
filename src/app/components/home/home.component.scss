@@ -12,12 +12,27 @@ h2 {
   
       @include mobile-screen {
         font-size: 1.5rem;
+        margin-top: 8rem;
       }
     
 }
 
 h2, p {
     color: $medium-light-gray;
+}
+
+.modal__error {
+    padding: 2rem;
+}
+
+.modal-error__icon {
+    
+}
+
+.modal-error__text {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2.5rem;
 }
 
 .home__text-information {
@@ -44,4 +59,10 @@ h2, p {
 
 .form__inputs-container {
     // mudar de row p coluna
+}
+
+.modal__tracks-list {
+    // display: flex;
+    // justify-content: center;
+    margin: 1rem 0;
 }

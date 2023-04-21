@@ -9,6 +9,7 @@ import { GeocodingApiService } from 'src/app/services/geocoding-api/geocoding-ap
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { GenreDictionary } from 'src/app/shared/dictionaries/genre-dictionary';
 import { LoadingComponent } from '../shared/loading/loading.component';
+import { ModalComponent } from '../shared/modal/modal.component';
 
 // TODO: criar mais uma coluna com o nome country e só preencher city se ela for informada
 // TODO: ao clicar em salvar ou fechar o modal, resetar os dados de current
@@ -21,7 +22,13 @@ import { LoadingComponent } from '../shared/loading/loading.component';
 export class HomeComponent {
   @ViewChild('loadingModal', { static: false })
   loadingModal: LoadingComponent;
-  
+
+  @ViewChild('tracksResultModal', { static: false })
+  tracksResultModal: ModalComponent;
+
+  @ViewChild('errorModal', { static: false })
+  errorModal: ModalComponent;
+
   constructor(
     private _geocodingApiService: GeocodingApiService,
     private _currentWeatherDataApiService: CurrentWeatherDataApiService,
@@ -34,7 +41,7 @@ export class HomeComponent {
     new RecomendedTrackListModel();
   form: FormGroup;
   btnDisabled: boolean = false;
-  textLoading: string = 'Searching'
+  textLoading: string = 'Searching';
 
   // TODO: preencher nome da cidade OU coordenadas
 
@@ -54,42 +61,58 @@ export class HomeComponent {
     });
   }
 
+  closeErrorModal() {
+    this.errorModal.close();
+  }
+
+  handleInvalidCityError() {
+    this.f['city'].setErrors({ invalidCity: true });
+  }
+
   getCoordinatesByLocationName(address: string) {
-    this.textLoading = 'Searching for geographic coordinates...';
+    this.textLoading = 'Searching';
     this.loadingModal.open();
     this._geocodingApiService.getCoordinatesByLocationName(address).subscribe({
       next: (response: Coordinates) => {
         this.loadingModal.close();
+        if (
+          typeof response.lat == 'undefined' ||
+          typeof response.lon == 'undefined'
+        ) {
+          this.handleInvalidCityError();
+          return;
+        }
+
         if (response) {
-          console.log('deu bom');
-          console.log(response);
           this.curentRecommendation.city = address;
           this.getCurrentWeatherData(response, true);
+          return;
         }
+
+        this.errorModal.open();
       },
       error: (error: any) => {
         this.loadingModal.close();
-        console.log('deu ruim');
-        console.log(error);
+        this.errorModal.open();
       },
     });
   }
 
   getCurrentWeatherData(
     coordinates: Coordinates,
-    haveCityInformation: boolean
+    haveCityInformation?: boolean
   ) {
-    this.textLoading = 'Checking local temperature...';
+    this.textLoading = 'Checking';
     this.loadingModal.open();
     this._currentWeatherDataApiService
       .getCurrentWeatherData(coordinates)
       .subscribe({
         next: (response: any) => {
           this.loadingModal.close();
-          // console.log('getCurrentWeatherData - deu bom');
-          console.log(response);
+          if (!response) {
+            this.errorModal.open();
+          }
           if (response && response.temperature) {
-            // console.log(response);
             this.curentRecommendation.temperature = response.temperature;
             this.setMusicGenreByTemperature(response.temperature);
           }
@@ -99,8 +122,7 @@ export class HomeComponent {
           }
         },
         error: (error: any) => {
-          // console.log('getCurrentWeatherData - deu ruim');
-          console.log(error);
+          this.errorModal.open();
           this.loadingModal.close();
         },
       });
@@ -121,17 +143,22 @@ export class HomeComponent {
     this.getMusicSuggestionsList(musicSuggestion);
   }
 
-
   async getMusicSuggestionsList(musicType: MusicGenres) {
-    this.textLoading = 'Preparing music recommendations...';
+    this.textLoading = 'Preparing';
     this.loadingModal.open();
     let suggestionList = await this._deezerApiService.getPlaylistInfos(
       GenreDictionary[musicType]
     );
     this.loadingModal.close();
-    console.log(suggestionList)
+
+    if (!suggestionList) {
+      this.errorModal.open();
+      return;
+    }
+    // console.log(suggestionList);
     this.curentRecommendation.tracks = suggestionList;
     this.curentRecommendation.searchDate = new Date().toString();
+    this.tracksResultModal.open();
   }
 
   createLocalStorage() {
@@ -146,6 +173,11 @@ export class HomeComponent {
     this._localStorageService.set(localStorageData);
   }
 
+  closeModalAndSave() {
+    this.saveMusicSuggestionsList();
+    this.tracksResultModal.close();
+  }
+
   saveMusicSuggestionsList() {
     if (!this._localStorageService.localStorageExist()) {
       this.createLocalStorage();
@@ -156,9 +188,6 @@ export class HomeComponent {
   }
 
   checkDisableBtn(): boolean {
-    if (this.form.invalid) {
-      console.log('invalid');
-    }
     const fieldsWithValue: boolean =
       (this.f['lat'].value && this.f['lon'].value) || this.f['city'].value;
     return this.form.invalid || !fieldsWithValue;

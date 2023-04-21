@@ -7,6 +7,11 @@ import { ListComponent } from './list/list.component';
 import { ContentContainerComponent } from './content-container/content-container.component';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './loading/loading.component';
+import { IconComponent } from './icon/icon.component';
+import { TrackItemComponent } from './track-item/track-item.component';
+import { TrackListCardComponent } from './track-list-card/track-list-card.component';
+import { FeatherModule } from 'angular-feather';
+import { allIcons } from 'angular-feather/icons';
 
 
 
@@ -17,11 +22,15 @@ import { LoadingComponent } from './loading/loading.component';
     ModalComponent,
     ListComponent,
     ContentContainerComponent,
-    LoadingComponent
+    LoadingComponent,
+    IconComponent,
+    TrackItemComponent,
+    TrackListCardComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    FeatherModule.pick(allIcons)
   ],
   exports: [
     InputComponent,
@@ -29,7 +38,11 @@ import { LoadingComponent } from './loading/loading.component';
     ModalComponent,
     ListComponent,
     ContentContainerComponent,
-    LoadingComponent
+    LoadingComponent,
+    IconComponent,
+    TrackItemComponent,
+    TrackListCardComponent,
+    FeatherModule
   ]
 })
 export class SharedModule { }

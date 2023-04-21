@@ -1,0 +1,47 @@
+@import "../../../../styles/colors.scss";
+@import "../../../../styles/mixins.scss";
+
+.track__body {
+    background-color: $light-gray;
+    border-radius: 0.5rem;
+    width: 20rem;
+    height: 5rem;
+    padding: 0.5rem;
+    gap: 2rem;
+    justify-self: center;
+
+    @include mobile-screen {
+        width: 15rem;
+      }
+    // margin: 1rem;
+
+    // @include medium-screen {
+    //   }
+  }
+
+.track__image {
+    border-radius: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.track__title {
+    font-weight: 600;
+    font-size: 0.7rem;
+    /* text-overflow: ellipsis; */
+    overflow: auto;
+    max-height: 2rem;
+}
+
+.track__artist {
+    font-weight: 300;
+}
+
+.track__info {
+    width: 10rem;
+}
+
+.track__deezer-link, .track__artist {
+    font-size: 0.63rem;
+
+}

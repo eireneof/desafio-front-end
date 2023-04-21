@@ -1,0 +1,15 @@
+<section class="track track__body d-flex row justify-center align-center">
+    <img src="{{track.imageLink}}" alt="" class="track__image">
+    <div class="track__info d-flex column">
+        <span class="track__title">{{track.title}}</span>
+        <span class="track__artist">{{track.artists}}</span>
+        <a href="{{track.link}}" class="track__deezer-link" target="_blank">Listen on Deezer</a>
+    </div>
+    <!-- <span class="track__preview">
+        <app-icon [icon]="isPlaying[index] ? 'pause' : 'play' " [darkerHoover]="true" (click)="togglePreview(index)"></app-icon>
+        <audio id="preview-{{index}}" src="{{track.preview}}"></audio>
+
+    </span> -->
+
+
+</section>

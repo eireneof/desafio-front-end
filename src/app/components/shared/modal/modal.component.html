@@ -1,1 +1,18 @@
-<p>modal works!</p>
+<div #myModal class="modal__container" >
+    <div class="modal__body">
+        <div class="modal__top d-flex justify-end">
+            <app-icon [icon]="'x'" (click)="close()"></app-icon>
+        </div>
+        <div class="modal__header">
+            <p class="modal__title">{{ title }}</p>
+        </div>
+        <div class="modal__content">
+            <ng-content></ng-content>
+        </div>
+        <div class="modal__button__container d-flex justify-center align-center">
+            <app-button [title]="btnLabel" (clickEmitter)="clickEmit()"></app-button>
+        </div>
+
+    </div>
+
+</div>

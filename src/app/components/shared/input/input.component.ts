@@ -24,7 +24,8 @@ export class InputComponent {
     lonOutOfTheLimit: 'Provide a value within the range of [-180, 180]',
     invalidValue: 'Provide a valid value',
     invalidCityCharacters: 'The city name must contain letters as characters',
-    missingLatOrLon: 'The latitude and longitude fields must be filled in together'
+    missingLatOrLon: 'The latitude and longitude fields must be filled in together',
+    invalidCity: 'This city name is invalid'
 
   }
   get f() { return this.parentForm.controls; }
