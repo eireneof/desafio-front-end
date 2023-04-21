@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/mixins.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+main {
+  height: 100%;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+body {
+    font: 16px "Poppins", sans-serif;
+  }
+
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.mb-8 {
+  margin-bottom: 8rem;
+}
