@@ -1,0 +1,47 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/mixins.scss";
+
+h2 {
+    font-weight: 500;
+    font-size: 2.5rem;
+    text-align: center;
+
+    @include medium-screen {
+        font-size: 2rem;
+      }
+  
+      @include mobile-screen {
+        font-size: 1.5rem;
+      }
+    
+}
+
+h2, p {
+    color: $medium-light-gray;
+}
+
+.home__text-information {
+    text-align: justify;
+    font-family: 'DM Sans', sans-serif;
+    @include medium-screen {
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+    }
+  
+      @include mobile-screen {
+        font-size: 0.8rem;
+      }
+}
+
+.form__inputs-container {
+    gap: 4rem;
+
+    @include medium-screen {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.form__inputs-container {
+    // mudar de row p coluna
+}

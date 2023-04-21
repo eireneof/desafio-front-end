@@ -18,7 +18,7 @@ export class DeezerApiService {
     private _helperService: HelperService,
     ) { }
 
-   async getPlaylistInfos(genreCode: any) {
+   async getPlaylistInfos(genreCode: any): Promise<TrackModel[]> {
 
     const url = this._baseUrl + genreCode;
     const headers = new HttpHeaders()
@@ -35,7 +35,7 @@ export class DeezerApiService {
       }
       return tracksList;
     } catch (err) {
-      return err;
+      return [];
     }
 
   }

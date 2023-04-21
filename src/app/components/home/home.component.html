@@ -1,1 +1,46 @@
-<p>home works!</p>
+<app-loading #loadingModal [text]="textLoading"></app-loading>
+
+<app-content-container
+  class="d-flex justify-center column"
+  [class]="'controle-padding'"
+>
+  <h2 class="mb-2">What kind of music is coming?</h2>
+  <p class="home__text-information mb-6">
+    Would you like to receive a list of recommended songs? For this, you can
+    fill in the "CITY NAME" field with the name of your favorite city, or
+    provide the coordinates of a location. The recommendation will be based on
+    the information you provide. It's important to remember that when filling in
+    the "LATITUDE" field, you must also fill in the "LONGITUDE" field.
+  </p>
+  <form class="form__form-group">
+    <section
+      class="d-flex row form__inputs-container mb-4 align-center justify-center"
+    >
+      <app-input
+        [title]="'CITY NAME'"
+        [controlName]="'city'"
+        [parentForm]="form"
+        [inputValue]="f['city'].value"
+      ></app-input>
+      <app-input
+        [title]="'lATITUDE'"
+        [controlName]="'lat'"
+        [parentForm]="form"
+        [inputValue]="f['lat'].value"
+      ></app-input>
+      <app-input
+        [title]="'LONGITUDE'"
+        [controlName]="'lon'"
+        [parentForm]="form"
+        [inputValue]="f['lon'].value"
+      ></app-input>
+    </section>
+    <section class="form__btn-container d-flex align-center justify-center">
+      <app-button
+        [title]="'SEARCH'"
+        [isDisabled]="checkDisableBtn()"
+        (clickEmitter)="handleSubmit()"
+      ></app-button>
+    </section>
+  </form>
+</app-content-container>

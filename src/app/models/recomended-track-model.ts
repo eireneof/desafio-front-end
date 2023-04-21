@@ -4,7 +4,8 @@ import { MusicGenres } from "./music-genres";
 export class RecomendedTrackListModel {
     searchDate: string = '';
     tracks: TrackModel[] = [];
-    temperature: string = '';
+    temperature: number = 0;
     city: string = '';
+    country: string = '';
     musicsGenre: MusicGenres = 'CLASSIC';
   }

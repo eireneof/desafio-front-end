@@ -1,1 +1,14 @@
-<p>input works!</p>
+<div class="input__container d-flex column">
+    <label for="{{id}}" class="input__label">{{title | uppercase}}</label>
+    <input
+        class="input__form-control"
+        id="{{id}}"
+        #inputvalue
+        [type]="inputType"
+        [(ngModel)]="inputValue"
+        (ngModelChange)="onInputChange($event)"
+        [placeholder]="placeHolder"
+        [class.input__error]="f[this.controlName].errors"
+    >
+    <span *ngIf="f[this.controlName].errors" class="input__error-message">{{getErrorMessage()}}</span>
+</div>

@@ -1,9 +1,12 @@
-<header class="header">
-    <nav class="header__navbar">
-        <ul class="navbar__list">
-            <li class="navbar__list-item" (click)="navigate('home')">HOME</li>
-            <li class="navbar__list-item" (click)="navigate('my-collection')">MY CLLECTION</li>
-        </ul>
+<header>
+    <div class="header__title">
+      <h1>SearchMusic</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a (click)="navigate('home')" [class.selected-item]="selectedItem === 'home'">HOME</a></li>
+        <li><a (click)="navigate('my-collection')" [class.selected-item]="selectedItem === 'my-collection'">MY COLLECTION</a></li>
+      </ul>
     </nav>
-</header>
-
+  </header>
+  

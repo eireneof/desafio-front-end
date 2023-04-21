@@ -8,6 +8,8 @@ import { GeocodingApiService } from '../services/geocoding-api/geocoding-api.ser
 import { HttpClientModule } from '@angular/common/http';
 import { DeezerApiService } from '../services/deezer-api/deezer-api.service';
 import { CurrentWeatherDataApiService } from '../services/current-weather-data-api/current-weather-data-api.service';
+import { LocalStorageService } from '../services/local-storage/local-storage.service';
+import { FormsModule } from '@angular/forms'; 
 
 
 
@@ -20,7 +22,8 @@ import { CurrentWeatherDataApiService } from '../services/current-weather-data-a
   imports: [
     CommonModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent
@@ -28,7 +31,8 @@ import { CurrentWeatherDataApiService } from '../services/current-weather-data-a
   providers: [
     GeocodingApiService,
     DeezerApiService,
-    CurrentWeatherDataApiService
+    CurrentWeatherDataApiService,
+    LocalStorageService,
   ]
 })
 export class ComponentsModule { }

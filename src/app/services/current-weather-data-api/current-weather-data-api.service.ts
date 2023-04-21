@@ -44,12 +44,19 @@ export class CurrentWeatherDataApiService {
     const url = this._helperService.buildUrl(urlParameters, this._baseUrl);
     return this._http.get(url).pipe(
       map((response: any) => {
+        console.log(response)
         let temperature: number = this._helperService.getINT_MAX();
+        let country: string = '';
         if(response && response.main && response.main.temp) {
           temperature = response.main.temp;
         } 
-        return temperature
-      }), // TODO: ver como fazer tratativas de erro
+
+        if(response && response.sys && response.sys.country) {
+          country = response.sys.country;
+        }
+
+        return {temperature: temperature, country: country}
+      }),
       catchError((error: any) => {
         return error;
       })

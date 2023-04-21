@@ -40,6 +40,7 @@ export class GeocodingApiService {
     const url = this._helperService.buildUrl(urlParameters, this._baseUrl);
     return this._http.get(url).pipe(
       map((response: any) => {
+        console.log(response);
         let coordinates: Coordinates = new Coordinates();
         if(response && response[0] && response[0]['lat']) {
           coordinates.lat = response[0]['lat'];
@@ -48,8 +49,14 @@ export class GeocodingApiService {
           coordinates.lon = response[0]['lon'];
         }
 
+        // console.log(response[0]['country'])
+
+        // if(response && response[0] && response[0]['country']) {
+        //   coordinates.country = response[0]['country'];
+        // }
+
         return coordinates;
-      }), // TODO: ver como fazer tratativas de erro
+      }),
       catchError((error: any) => {
         return error;
       })
