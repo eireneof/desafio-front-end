@@ -1,33 +1,32 @@
 @import "../../../../styles/colors.scss";
 
 .conteudo__container {
-    float: left;
-    width: 100%;
-    position: relative;
-    background: $white 0% 0% no-repeat padding-box;
-    overflow: auto;
-    height: 80vh;
-    opacity: 1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+  float: left;
+  width: 100%;
+  position: relative;
+  background: $white 0% 0% no-repeat padding-box;
+  overflow: auto;
+  height: 90vh;
+  opacity: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  .controle-padding{
-    padding: 0 40px;
-    // padding-left: 40px;
-    // padding-right: 40px;
-    // padding-bottom: 24px;
-  }
+.controle-padding {
+  padding: 0 40px;
+  // padding-left: 40px;
+  // padding-right: 40px;
+  // padding-bottom: 24px;
+}
 
 //   .no-padding{
 //     padding:0;
 //   }
-  
+
 //   @media (max-width: 1080px) {
 //     .controle-padding {
 //     padding-left: 16px;
 //     padding-right: 16px;
 //     }
 //   }
-  

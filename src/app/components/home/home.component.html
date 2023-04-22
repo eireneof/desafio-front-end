@@ -1,16 +1,32 @@
 <app-loading #loadingModal [text]="textLoading"></app-loading>
 
 <app-modal #tracksResultModal (submitEmitter)="closeModalAndSave()">
-  <div class="modal__tracks-list d-flex justify-center" *ngFor="let track of curentRecommendation?.tracks">
+  <p class="modal__tracks-list__genre">
+    ({{ this.curentRecommendation.musicsGenre | uppercase }})
+  </p>
+  <div
+    class="modal__tracks-list d-flex justify-center"
+    *ngFor="let track of curentRecommendation?.tracks"
+  >
     <app-track-item [track]="track"></app-track-item>
   </div>
 </app-modal>
 
-<app-modal #errorModal [title]="'Warning!'" [btnLabel]="'CLOSE'" (submitEmitter)="closeErrorModal()">
+<app-modal
+  #errorModal
+  [title]="'Warning!'"
+  [btnLabel]="'CLOSE'"
+  (submitEmitter)="closeErrorModal()"
+>
   <div class="modal__error d-flex justify-center align-center column">
-    <app-icon class="modal-error__icon mt-2" [icon]="'warning'" [size]="6"></app-icon>
+    <app-icon
+      class="modal-error__icon mt-2"
+      [icon]="'warning'"
+      [size]="6"
+    ></app-icon>
     <p class="modal-error__text">
-      An error occurred while connecting to the services. Please try again. If the error persists, you can try providing new information.
+      An error occurred while connecting to the services. Please try again. If
+      the error persists, you can try providing new information.
     </p>
   </div>
 </app-modal>

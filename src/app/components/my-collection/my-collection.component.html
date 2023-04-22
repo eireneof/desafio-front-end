@@ -1,1 +1,36 @@
-<p>my-collection works!</p>
+<app-content-container
+  class="my-collection-page d-flex justify-center column"
+  [class]="'controle-padding'"
+>
+  <h2 class="collection-text mb-4">What kind of music is coming?</h2>
+  <p class="empty-collection" *ngIf="!hasLocalStorage()">
+    It seems like you don't have anything at the moment...
+  </p>
+  <div
+    class="collection__header d-flex row mb-2"
+    *ngIf="hasLocalStorage()"
+  >
+    <span>DATE</span>
+    <span>GENRE</span>
+    <span>TEMPERATURE</span>
+    <span>CITY</span>
+    <span>COUNTRY</span>
+  </div>
+
+  <div
+    *ngIf="hasLocalStorage()"
+    class="collection__cards__container d-flex column align-center"
+  >
+    <div
+      class="collection__body__cards mb-2"
+      *ngFor="let item of myCollection; let i = index"
+    >
+      <app-track-list-card
+        [trackList]="item"
+        class=""
+        (deleteItemEmitter)="deleteCard($event)"
+        [index]="i"
+      ></app-track-list-card>
+    </div>
+  </div>
+</app-content-container>

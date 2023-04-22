@@ -169,7 +169,12 @@ export class HomeComponent {
 
   setNewItemLocalStorage() {
     let localStorageData = this._localStorageService.get();
-    localStorageData.result.push(this.curentRecommendation);
+    if(localStorageData?.result) {
+      localStorageData.result.push(this.curentRecommendation);
+    } else if (localStorageData) {
+      localStorageData.push(this.curentRecommendation);
+    }
+
     this._localStorageService.set(localStorageData);
   }
 
@@ -180,6 +185,7 @@ export class HomeComponent {
 
   saveMusicSuggestionsList() {
     if (!this._localStorageService.localStorageExist()) {
+      console.log('entrei aqui')
       this.createLocalStorage();
       return;
     }

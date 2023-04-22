@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { UrlParameter } from 'src/app/models/url-parameter';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HelperService {
-  
   private INT_MAX: number = 2147483647;
 
+  constructor() {}
 
-  constructor() { }
-
-  getINT_MAX(): number {return this.INT_MAX;}
+  getINT_MAX(): number {
+    return this.INT_MAX;
+  }
 
   buildUrl(estruturaUrl: UrlParameter[], url: string) {
     let firstFilter = false;
@@ -41,6 +41,4 @@ export class HelperService {
     const formattedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${formattedMinutes}:${formattedSeconds}`;
   }
-  
-  
 }

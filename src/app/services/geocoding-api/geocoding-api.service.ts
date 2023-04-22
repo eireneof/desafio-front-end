@@ -6,46 +6,45 @@ import { HttpClient } from '@angular/common/http';
 import { Coordinates } from 'src/app/models/coordinates';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GeocodingApiService {
-
   private _apiKey: string = 'cee5c1d49d7f32598bbf9c13c14d1148';
   private _baseUrl: string = 'http://api.openweathermap.org/geo/1.0/direct?';
 
   constructor(
     private _helperService: HelperService,
     private _http: HttpClient
-    ) { }
+  ) {}
 
   private _getURLParameters(adress: string): UrlParameter[] {
     return [
       {
-        'value': adress,
-        'url': 'q='
+        value: adress,
+        url: 'q=',
       },
       {
-        'value': '1',
-        'url': 'limit='
+        value: '1',
+        url: 'limit=',
       },
       {
-        'value': this._apiKey,
-        'url': 'appid='
-      }
-    ]
+        value: this._apiKey,
+        url: 'appid=',
+      },
+    ];
   }
 
   getCoordinatesByLocationName(adress: string): Observable<any> {
-    const urlParameters: UrlParameter[] =  this._getURLParameters(adress);
+    const urlParameters: UrlParameter[] = this._getURLParameters(adress);
     const url = this._helperService.buildUrl(urlParameters, this._baseUrl);
     return this._http.get(url).pipe(
       map((response: any) => {
         console.log(response);
         let coordinates: Coordinates = new Coordinates();
-        if(response && response[0] && response[0]['lat']) {
+        if (response && response[0] && response[0]['lat']) {
           coordinates.lat = response[0]['lat'];
         }
-        if(response && response[0] && response[0]['lon']) {
+        if (response && response[0] && response[0]['lon']) {
           coordinates.lon = response[0]['lon'];
         }
 
@@ -61,7 +60,5 @@ export class GeocodingApiService {
         return error;
       })
     );
-
-
   }
 }
