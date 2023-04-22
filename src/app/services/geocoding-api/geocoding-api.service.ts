@@ -10,7 +10,7 @@ import { Coordinates } from 'src/app/models/coordinates';
 })
 export class GeocodingApiService {
   private _apiKey: string = 'cee5c1d49d7f32598bbf9c13c14d1148';
-  private _baseUrl: string = 'http://api.openweathermap.org/geo/1.0/direct?';
+  private _baseUrl: string = 'https://api.openweathermap.org/geo/1.0/direct?';
 
   constructor(
     private _helperService: HelperService,
