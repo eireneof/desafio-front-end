@@ -1,25 +1,30 @@
 <section class="track-list-card track-list-card__container">
-    <div class="track-list-card__body d-flex row justify-center align-center">
-        <div class="track-list-card__content">
-            <div class="track-list-card__infos d-flex row justify-center mb-2" >
-                <span>{{trackList.searchDate | date:'MM/dd/yyyy' }}</span>
-                <span>{{trackList.musicsGenre| uppercase }}</span>
-                <span>{{trackList.temperature| number: '1.0-1' }}°C</span>
-                <span>{{trackList.city ?  trackList.city : '---'| titlecase }}</span>
-                <span>{{trackList.country | uppercase }}</span>
-            </div>
-            <div class="track-list-card__musics d-flex wrap">
-                <div
-                class="d-flex"
-                *ngFor="let track of trackList?.tracks"
-              >
-                <app-track-item [track]="track" class="track-list-card__item"></app-track-item>
-              </div>
-
-            </div>
+  <div class="track-list-card__body d-flex row justify-center align-center">
+    <div class="track-list-card__content">
+      <div class="track-list-card__infos d-flex row justify-center mb-2">
+        <span>{{ trackList.searchDate | date : "MM/dd/yyyy" }}</span>
+        <span>{{ trackList.musicsGenre | uppercase }}</span>
+        <span>{{ trackList.temperature | number : "1.0-1" }}°C</span>
+        <span>{{ trackList.city ? trackList.city : ("---" | titlecase) }}</span>
+        <span>{{ trackList.country | uppercase }}</span>
+      </div>
+      <div class="track-list-card__musics d-flex wrap">
+        <div class="d-flex" *ngFor="let track of trackList?.tracks">
+          <app-track-item
+            [track]="track"
+            class="track-list-card__item"
+          ></app-track-item>
         </div>
-        <span class="track-list-card__trash-icon d-flex justify-center align-center">
-            <app-icon [icon]="'trash'" [size]="2" (click)="emitDeleteAction()"></app-icon>
-        </span>
+      </div>
     </div>
+    <span
+      class="track-list-card__trash-icon d-flex justify-center align-center"
+    >
+      <app-icon
+        [icon]="'trash'"
+        [size]="2"
+        (click)="emitDeleteAction()"
+      ></app-icon>
+    </span>
+  </div>
 </section>

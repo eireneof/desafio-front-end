@@ -13,10 +13,6 @@
   @include mobile-screen {
     width: 15rem;
   }
-  // margin: 1rem;
-
-  // @include medium-screen {
-  //   }
 }
 
 .track__image {
@@ -28,10 +24,8 @@
 .track__title {
   font-weight: 600;
   font-size: 0.7rem;
-  /* text-overflow: ellipsis; */
   overflow: auto;
-//   max-height: 2rem;
-height: 100%;
+  height: 100%;
 }
 
 .track__artist {

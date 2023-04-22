@@ -6,10 +6,7 @@
   <p class="empty-collection" *ngIf="!hasLocalStorage()">
     It seems like you don't have anything at the moment...
   </p>
-  <div
-    class="collection__header d-flex row mb-2"
-    *ngIf="hasLocalStorage()"
-  >
+  <div class="collection__header d-flex row mb-2" *ngIf="hasLocalStorage()">
     <span>DATE</span>
     <span>GENRE</span>
     <span>TEMPERATURE</span>

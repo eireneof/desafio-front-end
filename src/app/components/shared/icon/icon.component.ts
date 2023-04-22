@@ -10,8 +10,6 @@ export class IconComponent {
   @Input() darkerHoover: boolean = false;
   @Input() size: number = 0;
 
-  // TODO: ver se preciso deixar os tamanhos personalizáveis depois
-
   iconsList: any = {
     trash: {
       url: '../../../../assets/icons/trash-bin-svgrepo-com.svg',

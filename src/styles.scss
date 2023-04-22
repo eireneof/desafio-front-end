@@ -14,22 +14,23 @@ main {
   height: 100%;
 }
 
-button, a {
+button,
+a {
   cursor: pointer;
 }
 
 body {
-    font: 16px "Poppins", sans-serif;
-  }
+  font: 16px "Poppins", sans-serif;
+}
 
-  ul {
-    list-style: none;
-  }
-  
-  li {
-    list-style-type: none;
-  }
-  
+ul {
+  list-style: none;
+}
+
+li {
+  list-style-type: none;
+}
+
 .d-flex {
   display: flex;
 }

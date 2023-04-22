@@ -22,25 +22,27 @@ export class MyCollectionComponent {
     }
 
     let localStorageData = this._localStorageService.get();
-    console.log('localStorageData')
-    console.log(localStorageData)
-    if (localStorageData.result) {
+    if (localStorageData?.result[0]) {
       this.myCollection = localStorageData.result;
-    } else if(localStorageData) {
-      this.myCollection = localStorageData
     }
   }
 
   hasLocalStorage() {
     let localStorageData = this._localStorageService.get();
-    return this._localStorageService.localStorageExist() && localStorageData.length;
+    return (
+      this._localStorageService.localStorageExist() &&
+      localStorageData?.result?.length
+    );
   }
 
   deleteCard(index: number) {
     this.myCollection.splice(index, 1);
-    console.log(this.myCollection);
+    if (!this.myCollection.length) {
+      this._localStorageService.clear();
+      return;
+    }
     if (this._localStorageService.localStorageExist()) {
-      this._localStorageService.set(this.myCollection);
+      this._localStorageService.set({ result: this.myCollection });
     }
   }
 }

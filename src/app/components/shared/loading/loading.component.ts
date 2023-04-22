@@ -3,16 +3,12 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.scss']
+  styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent {
   @ViewChild('myModal', { static: false }) myModal: ElementRef;
-  
-  @Input() text = 'Searching...';
 
-  ngOnInit(): void {
-    // this.modal = new ElementRef(document.getElementById('myModal'));
-  }
+  @Input() text = 'Searching...';
 
   open() {
     this.myModal.nativeElement.style.display = 'flex';
@@ -21,5 +17,4 @@ export class LoadingComponent {
   close() {
     this.myModal.nativeElement.style.display = 'none';
   }
-
 }

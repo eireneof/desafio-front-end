@@ -1,6 +1,6 @@
-import { Coordinates } from "./coordinates";
+import { Coordinates } from './coordinates';
 
 export class LocationModel {
-    coordinates: Coordinates = new Coordinates();
-    city: string = '';
+  coordinates: Coordinates = new Coordinates();
+  city: string = '';
 }

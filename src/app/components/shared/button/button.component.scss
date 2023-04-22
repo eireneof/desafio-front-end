@@ -1,26 +1,25 @@
 @import "../../../../styles/colors.scss";
 
 .btn__primary {
-    background-color: $medium-gray;
-    border: none hsl(0, 0%, 12%);
-    color: $white;
-    transition: all 0.5s;
-    height: 2.5rem;
-    width: 16rem;
-    border-radius: 0.3rem;
-    font-weight: 600;
-  }
-  
-  .btn__primary-hover:hover {
-    background-color: hsl(0, 1%, 14%);
-  }
+  background-color: $medium-gray;
+  border: none hsl(0, 0%, 12%);
+  color: $white;
+  transition: all 0.5s;
+  height: 2.5rem;
+  width: 16rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+}
 
-  .btn__disabled {
-    cursor: not-allowed;
+.btn__primary-hover:hover {
+  background-color: hsl(0, 1%, 14%);
+}
+
+.btn__disabled {
+  cursor: not-allowed;
+  background-color: $medium-light-gray;
+
+  .btn__primary:hover {
     background-color: $medium-light-gray;
-
-    .btn__primary:hover {
-      background-color: $medium-light-gray;
-    }
   }
-  
+}

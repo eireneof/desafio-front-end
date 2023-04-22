@@ -49,6 +49,11 @@ export class InputComponent {
   }
 
   validateValueAtBothFields() {
+    if (!this.f['lon'].value && !this.f['lat'].value) {
+      this.f['lon'].setErrors(null);
+      this.f['lat'].setErrors(null);
+      return;
+    }
     if (this.isMissingError()) {
       return;
     }
@@ -59,9 +64,6 @@ export class InputComponent {
       this.f['lat'].setErrors({ missingLatOrLon: true });
     }
   }
-
-  // TODO: validação nome da cidade OU lat e lon
-  // TODO: impedir que os inputs comecem com espaço
 
   isMissingError(): boolean {
     let latError: any = this.f['lat'].errors;

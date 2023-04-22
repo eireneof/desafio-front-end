@@ -11,9 +11,6 @@ import { GenreDictionary } from 'src/app/shared/dictionaries/genre-dictionary';
 import { LoadingComponent } from '../shared/loading/loading.component';
 import { ModalComponent } from '../shared/modal/modal.component';
 
-// TODO: criar mais uma coluna com o nome country e só preencher city se ela for informada
-// TODO: ao clicar em salvar ou fechar o modal, resetar os dados de current
-// TODO: ver como dar trhow error
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -42,8 +39,6 @@ export class HomeComponent {
   form: FormGroup;
   btnDisabled: boolean = false;
   textLoading: string = 'Searching';
-
-  // TODO: preencher nome da cidade OU coordenadas
 
   ngOnInit(): void {
     this.buildForm();
@@ -120,6 +115,10 @@ export class HomeComponent {
           if (response && response.country) {
             this.curentRecommendation.country = response.country;
           }
+
+          if (!haveCityInformation) {
+            this.curentRecommendation.city = '';
+          }
         },
         error: (error: any) => {
           this.errorModal.open();
@@ -155,7 +154,6 @@ export class HomeComponent {
       this.errorModal.open();
       return;
     }
-    // console.log(suggestionList);
     this.curentRecommendation.tracks = suggestionList;
     this.curentRecommendation.searchDate = new Date().toString();
     this.tracksResultModal.open();
@@ -169,7 +167,7 @@ export class HomeComponent {
 
   setNewItemLocalStorage() {
     let localStorageData = this._localStorageService.get();
-    if(localStorageData?.result) {
+    if (localStorageData?.result) {
       localStorageData.result.push(this.curentRecommendation);
     } else if (localStorageData) {
       localStorageData.push(this.curentRecommendation);
@@ -185,7 +183,6 @@ export class HomeComponent {
 
   saveMusicSuggestionsList() {
     if (!this._localStorageService.localStorageExist()) {
-      console.log('entrei aqui')
       this.createLocalStorage();
       return;
     }

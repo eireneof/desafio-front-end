@@ -13,38 +13,37 @@ h2 {
 
   @include mobile-screen {
     font-size: 1.5rem;
-    // margin-top: 8rem;
   }
 }
 
 .collection__header {
-    gap: 8rem;
-    justify-content: space-around;
-    align-self: center;
+  gap: 8rem;
+  justify-content: space-around;
+  align-self: center;
 
-    @include medium-screen {
-        gap: 3rem;
-      }
-      @include mobile-screen {
-        gap: 1rem;
-      }
+  @include medium-screen {
+    gap: 3rem;
+  }
+  @include mobile-screen {
+    gap: 1rem;
+  }
 }
 
 .collection__header span {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
 
-    @include medium-screen {
-        font-size: 1rem;
-      }
-      @include mobile-screen {
-        font-size: 0.8rem;
-      }
+  @include medium-screen {
+    font-size: 1rem;
+  }
+  @include mobile-screen {
+    font-size: 0.8rem;
+  }
 }
 
 .collection__cards__container {
-    max-height: 20rem;
+  max-height: 20rem;
 }
 
 .empty-collection {

@@ -2,75 +2,60 @@
 @import "../../../../styles/mixins.scss";
 
 .track-list-card__container {
-    background-color: $light-gray;
-    width: 55rem;
-    min-height: 22.5rem;
-    border-radius: 0.5rem;
-    // width: 32rem;
-    height: 100%;
-    
-    @include medium-screen {
-        // height: 35rem;
-        width: 31rem;
-        min-height: 35rem;
-    }
+  background-color: $light-gray;
+  width: 55rem;
+  min-height: 22.5rem;
+  border-radius: 0.5rem;
+  height: 100%;
 
-    @include mobile-screen {
-        // height: 35rem;
-        width: 19rem;
-        // min-height: 35rem;
-    }
+  @include medium-screen {
+    width: 31rem;
+    min-height: 35rem;
+  }
+
+  @include mobile-screen {
+    width: 19rem;
+  }
 }
 
 .track-list-card__body {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-
 .track-list-card__infos span {
-    font-weight: 500;
+  font-weight: 500;
+
+  @include mobile-screen {
+    font-size: 0.6rem;
+  }
 }
 
 .track-list-card__infos {
-    gap: 8rem;
+  gap: 8rem;
 
-    @include medium-screen {
-        gap: 2.5rem;
-    }
+  @include medium-screen {
+    gap: 2.5rem;
+  }
 
-    @include mobile-screen {
-        gap: 1.2rem;
-    }
+  @include mobile-screen {
+    gap: 1.2rem;
+  }
 }
 
 .track-list-card__item {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
 
 .track-list-card__trash-icon {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 
-    @include mobile-screen {
-        margin-top: 4rem
-    }
-
-    
+  @include mobile-screen {
+    margin-top: 4rem;
+  }
 }
 
 .track-list-card__musics {
-    @include medium-screen {
-        width: 10rem;
-    }
-
-    // @include mobile-screen {
-    //     gap: 4rem;
-    // }
-
-}
-
-.track-list-card__infos  span {
-    @include mobile-screen {
-        font-size: 0.6rem;
-      }
-
+  @include medium-screen {
+    width: 10rem;
+  }
 }

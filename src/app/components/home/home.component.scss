@@ -31,9 +31,6 @@ p {
   padding: 2rem;
 }
 
-.modal-error__icon {
-}
-
 .modal-error__text {
   text-align: center;
   font-size: 0.9rem;
@@ -43,6 +40,7 @@ p {
 .home__text-information {
   text-align: justify;
   font-family: "DM Sans", sans-serif;
+
   @include medium-screen {
     margin-bottom: 2rem;
     font-size: 0.95rem;
@@ -62,12 +60,6 @@ p {
   }
 }
 
-.form__inputs-container {
-  // mudar de row p coluna
-}
-
 .modal__tracks-list {
-  // display: flex;
-  // justify-content: center;
   margin: 1rem 0;
 }

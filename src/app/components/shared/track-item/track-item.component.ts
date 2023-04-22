@@ -26,42 +26,23 @@ export class TrackItemComponent {
 
   audioElements: HTMLAudioElement[];
 
-  ngOnInit() {
-    // this.getAudioElement(this.index);
-    // this.listenerAudioEnd(this.index);
-  }
-
   getAudioElement(i: number) {
-    // if(this.track.id)
     this.audioElements[i] = document.getElementById(
       `preview-${i}`
     ) as HTMLAudioElement;
   }
 
   listenerAudioEnd(i: number) {
-    // if(this.track.id && this.audioElement)
     this.audioElements[i].addEventListener('ended', () => {
       this.isPlaying[i] = false;
     });
   }
-
-  // togglePreview() {
-  //   console.log(this.track.title)
-  //   if (this.isPlaying) {
-  //     this.audioElement.pause();
-  //     this.isPlaying = false;
-  //   } else {
-  //     this.audioElement.play();
-  //     this.isPlaying = true;
-  //   }
-  // }
 
   togglePreview(index: number) {
     if (this.isPlaying[index]) {
       this.audioElements[index].pause();
       this.isPlaying[index] = false;
     } else {
-      // pause all other tracks
       this.audioElements.forEach((audio, i) => {
         if (i !== index) {
           audio.pause();
@@ -69,7 +50,6 @@ export class TrackItemComponent {
         }
       });
 
-      // play the selected track
       this.audioElements[index].play();
       this.isPlaying[index] = true;
     }

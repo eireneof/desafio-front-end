@@ -9,30 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeezerApiService } from '../services/deezer-api/deezer-api.service';
 import { CurrentWeatherDataApiService } from '../services/current-weather-data-api/current-weather-data-api.service';
 import { LocalStorageService } from '../services/local-storage/local-storage.service';
-import { FormsModule } from '@angular/forms'; 
-
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    NavbarComponent,
-    MyCollectionComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    HttpClientModule,
-    FormsModule
-  ],
-  exports: [
-    NavbarComponent
-  ],
+  declarations: [HomeComponent, NavbarComponent, MyCollectionComponent],
+  imports: [CommonModule, SharedModule, HttpClientModule, FormsModule],
+  exports: [NavbarComponent],
   providers: [
     GeocodingApiService,
     DeezerApiService,
     CurrentWeatherDataApiService,
     LocalStorageService,
-  ]
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
