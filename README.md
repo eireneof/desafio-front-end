@@ -1,31 +1,88 @@
-# Desafio Angular Front-end
+# SearchMusic - Projeto Angular - Clima e Música :partly_sunny: :notes: :sparkles:
 
-Resultado: https://desafio-front-end-vert.vercel.app/home
+Este projeto tem como objetivo demonstrar como consumir APIs externas para obter informações sobre o clima e recomendar músicas com base na temperatura de uma determinada localização.
 
-## Objetivo:
+## Tecnologias
 
-- Consumo de API externas, à partir de documentação
-- Salvar as informações somente no storage do navegador (Não utilizar backend e/ou banco de dados)
-- Estrutura de projeto (Componentes, etc)
-- O projeto deve ser feito em ANGULAR
+![Angular badge](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) ![Typescript badge](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Jasmine badge](https://img.shields.io/badge/Jasmine-8A4182?style=for-the-badge&logo=Jasmine&logoColor=white) ![SASS badge](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
-## Descrição do projeto
+## Como utilizar
 
-Dada uma localização (Cidade, latitude, longitude, etc) a aplicação deverá buscar na API de tempo (Weather API ou afins) a temperatura relativa da localização e assim que retornada a resposta deverá ser solicitada para à API de músicas (Shazam API ou afins) a lista de músicas recomendadas para o clima atual.
+Você pode rodar o projeto localmente ou acessar a [página](https://desafio-front-end-vert.vercel.app/home).
 
-- Caso a temperatura seja maior que 32 graus, deverá retornar Rock;
-- Caso a temperatura seja menor que 32 e maior 24, deverá retornar Pop;
-- Caso a temperatura seja menor que 24 e maior que 16, devera retornar Classica;
+Para rodar o projeto localmente:
 
-E caso a temperatura seja menor que 16, deverá retornar Lofi.
-Assim que retornado à lista de música, caso seja do agrado da pessoa, poderá ser salva no storage do navegador com a data de busca, a lista de músicas, à temperatura, à cidade e a categoria das músicas.
-Deverá haver uma página mostrando a listagem das músicas por data salva no storage.
-As listas podem ser deletadas.
+1. Clone este repositório em sua máquina local
+2. Execute `npm install` para instalar todas as dependências
+2. Execute `ng serve` para iniciar a aplicação
+3. Navegue até `http://localhost:4200/` em seu navegador
 
-## Apis recomendadas
-- https://openweathermap.org/current
-- https://rapidapi.com/apidojo/api/shazam
+_OBS: é necessário ter o Node.js e o Angular CLI instalados para rodar localmente_
+
+## Resultados
+
+![GIF da aplicação](/src/assets/gifs/Peek%2022-04-2023%2016-17.gif)
+
+## Funcionalidades
+
+A aplicação permite que o usuário:
+
+- Insira uma cidade ou coordenadas geográficas (latitude e longitude) para obter informações sobre o clima e recomendações musicais com base na temperatura atual.
+
+- Visualize uma lista de músicas recomendadas, com informações sobre a temperatura, cidade e categoria das músicas.
+
+- Salve uma lista de músicas no storage do navegador, com informações sobre a temperatura, cidade, país, data da pesquisa e categoria das músicas
+Visualize uma lista de músicas salvas com suas respectivas informações e a opção de excluí-las
+
+## APIs utilizadas
+Para este projeto, foram utilizadas as seguintes APIs:
+
+- [Geocoding API](https://openweathermap.org/api/geocoding-api) - obter as cordenadas geográficas da cidade informada
+- [Current weather data](https://openweathermap.org/current) - obter informações sobre o clima a partir de coordenadas geográficas
+- [Deezer API](https://developers.deezer.com/api) - listas de músicas
+
+
 
 ## Diferenciais
 
-Fazer deploy em algum serviço
+- Deploy da aplicação
+- Início da implementação de testes unitários
+- Design responsivo
+- Validações nos inputs
+- Não foi utilizada nenhuma biblioteca de estilos, os componentes foram feitos do zero
+- Loading entre as chamadas dos serviços
+- Modal de erro em casos de erro nos serviços
+
+## Mais resultados
+
+- **Usuário deletando as listas:**
+
+![GIF página listagem das recomendações](/src/assets/gifs/Peek%2022-04-2023%2016-18.gif)
+
+- **Algumas validações:**
+    - Nome da cidade não pode conter números
+    - Se latitude for preenchida, longitude também deve ser preenchida e vice e versa
+    - Latitude precisa ser um valor válido entre -90 e +90
+    - Longitude precisa ser um valor válido entre -180 e +180
+    - Quando há algum erro ou os campos estão vazios, o botão fica bloqueado
+
+![GIF validações de input](/src/assets/gifs/Peek%2022-04-2023%2016-19.gif)
+
+- **Nome de cidade inválida:**
+    - Caso o usuário fornecça um nome de cidade inválido, o fluxo da aplicação é interrompido e um erro é setado no input.
+
+![GIF nome de cidade inválido](/src/assets/gifs/Peek%2022-04-2023%2016-20.gif)
+
+- **Responsividade:**
+
+![GIF alterando a largura da aplicação](/src/assets/gifs/Peek%2022-04-2023%2016-42.gif)
+
+<br>
+
+<hr>
+
+<div align="center">
+    Made with ☕ & &#128156; by <i>eirene</>
+</div>
+
+
