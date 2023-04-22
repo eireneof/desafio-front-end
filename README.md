@@ -46,12 +46,16 @@ Para este projeto, foram utilizadas as seguintes APIs:
 ## Diferenciais
 
 - Deploy da aplicação
-- Início da implementação de testes unitários
 - Design responsivo
 - Validações nos inputs
 - Não foi utilizada nenhuma biblioteca de estilos, os componentes foram feitos do zero
 - Loading entre as chamadas dos serviços
 - Modal de erro em casos de erro nos serviços
+
+## Futuras implementações
+
+- Botão de play para que o usuário  consiga escutar um preview das músicas
+- Coobertura de testes unitários
 
 ## Mais resultados
 
