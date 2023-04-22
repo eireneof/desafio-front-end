@@ -22,6 +22,8 @@ export class MyCollectionComponent {
     }
 
     let localStorageData = this._localStorageService.get();
+    console.log('localStorageData')
+    console.log(localStorageData)
     if (localStorageData.result) {
       this.myCollection = localStorageData.result;
     } else if(localStorageData) {

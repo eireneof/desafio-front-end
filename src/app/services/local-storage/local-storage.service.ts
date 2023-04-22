@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LocalStorageService {
   private _storage: Storage;
-  private _keyName: string = 'SearchMusic';
+  private _keyName: string = 'searchMusic';
 
   constructor() {
     this._storage = window.localStorage;
