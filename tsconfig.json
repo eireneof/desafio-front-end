@@ -17,13 +17,17 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "es5",
+    "module": "commonjs",
     "useDefineForClassFields": false,
     "lib": [
-      "ES2022",
+      "es2017",
       "dom"
-    ]
+    ],
+    "types": ["node"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
